@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+import { Link, Outlet } from 'react-router-dom';
+import './App.scss';
 import MainMenu from './components/MainMenu/MainMenu';
 import LoginScreen from './screens/LoginScreen';
 
@@ -47,8 +48,12 @@ function App() {
           <div key={index}>
             <div>{user.id}</div>
             <div>{user.name}</div>
+            <Link to={`/profile/${user.name}`}>View</Link>
           </div>
         ))}
+
+        <hr />
+        <Outlet />
       </div>
     </div>
   );
